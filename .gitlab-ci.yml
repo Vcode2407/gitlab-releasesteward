@@ -1,0 +1,14 @@
+image: python:3.12-slim
+stages: [test, evidence]
+compatibility-tests:
+  stage: test
+  script:
+    - python -m unittest discover -s tests -v
+release-evidence:
+  stage: evidence
+  script:
+    - python release_steward.py audit --scenario expand-contract --output artifacts/release-evidence.json --require-pass
+  artifacts:
+    when: always
+    paths: [artifacts/release-evidence.json]
+    expire_in: 60 days
