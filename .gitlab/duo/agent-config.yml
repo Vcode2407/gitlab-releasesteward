@@ -1,0 +1,5 @@
+# Prepared for GitLab's default flow image, which documents Python 3.12.
+# This environment has not yet been executed on the participant's GitLab project.
+setup_script:
+  - python3.12 --version
+  - python3.12 -c "import sqlite3, sys; assert sys.version_info[:2] == (3, 12); print('SQLite runtime ready:', sqlite3.sqlite_version)"

@@ -1,6 +1,6 @@
 # ReleaseSteward — Devpost submission draft
 
-English draft prepared October 10, 2026. This is an unpublished draft for Life After Code, not a submitted or qualifying entry. Local SQLite execution works; live GitLab Duo and GitLab CI execution remain unverified.
+English draft prepared October 10, 2026. This is public preparation material for Life After Code, not a submitted or qualifying entry. The [MIT GitHub source mirror](https://github.com/Vcode2407/gitlab-releasesteward) is published and local SQLite execution works; live GitLab Duo and GitLab CI execution remain unverified.
 
 ## Project name and tagline
 
@@ -30,7 +30,9 @@ The application uses Python 3.12, the standard-library HTTP server, and SQLite. 
 
 The report includes a SHA-256 hash of the harness source and a reproducible hash of the scenario, migration, checks, and source hash. Timestamps are separate from the reproducible evidence. `CI_COMMIT_SHA` and `CI_PIPELINE_URL` are included only when actually present in the execution environment; local reports leave them empty.
 
-A prepared `.gitlab-ci.yml` defines a test job and an evidence job using Python 3.12. A prepared custom Duo flow contains an inspector with file/command tools and a separate evidence reviewer with read-only file access. The inspector is instructed to run the actual harness and tests; the reviewer must cite observed check IDs and hashes and reject unsupported success claims. Catalog validation, runner setup, project enablement, and actual Duo execution are still pending.
+A prepared `.gitlab-ci.yml` defines a test job and an evidence job using Python 3.12. A prepared custom Duo flow contains an inspector with file/command tools and a separate evidence reviewer with read-only file access. The inspector is instructed to run the actual harness and tests; the reviewer must cite observed check IDs and hashes and reject unsupported success claims. The agent environment file checks Python 3.12 and SQLite in GitLab's default image. Catalog validation, runner setup, project enablement, and actual Duo execution are still pending.
+
+A separate pinned GitHub Actions workflow runs the eight tests, browser syntax check, and expand/backfill evidence gate. Its artifact stores the actual GitHub run provenance separately from GitLab metadata. Check its public run before claiming execution success; GitHub CI does not establish the event's GitLab automation requirement.
 
 Built with: Python, SQLite, HTML/CSS/JavaScript, SHA-256 evidence hashing, prepared GitLab CI configuration, and a prepared GitLab Duo custom-flow v1 configuration.
 
@@ -77,9 +79,12 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | Path | Path A — new project. |
 | Autonomy level | Proposed Supervised; confirm against actual demonstrated Duo workflow. |
 | Public MIT GitLab repository URL | Pending publication to the provided project. |
-| Runnable source and assets | Local build and README available; verify from a clean checkout. |
+| Public MIT GitHub source mirror | [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward), published. The required GitLab URL remains pending. |
+| Runnable source and assets | Public mirror, README, and [clean-checkout judge guide](JUDGE_SETUP.md) available. |
+| GitHub source verification | [Public Actions](https://github.com/Vcode2407/gitlab-releasesteward/actions/workflows/verify.yml); workflow prepared, actual run result must be checked. |
 | Visible GitLab pipeline history | Configuration prepared; actual execution/link pending. |
 | GitLab Duo flow/catalog URL and session evidence | Pending onboarding, registration, runner setup, enablement, and live execution. |
+| Contributor and Duo setup instructions | [Concrete onboarding, environment, goal, and evidence guide](GITLAB_SETUP.md) prepared. |
 | Public YouTube video under three minutes | Pending actual platform recording and upload. |
 | Source/evidence hashes and CI artifact link | Local reports supported; final verified platform artifact link pending. |
 | Deployment/Google Cloud bonus URL | None claimed. |
