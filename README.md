@@ -4,6 +4,8 @@ A new Path A entry for **Life After Code**. ReleaseSteward checks whether old an
 
 Public MIT source mirror: [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward). GitLab publication, GitLab CI, and GitLab Duo execution remain pending. The GitHub mirror does not complete the event's platform requirements.
 
+[Watch the actual narrated local walkthrough](docs/LOCAL_DEMO.md) (1:50): real rename, expand/backfill and failed-migration results, with downloadable recording evidence. Live GitLab execution remains pending.
+
 ## Run and verify
 
 Use Python 3.12. There are no external runtime dependencies.
@@ -22,7 +24,7 @@ The harness contains three controlled strategies and a work-order application fi
 
 The [GitHub workflow](.github/workflows/verify.yml) pins its four actions to reviewed commit hashes. It runs the existing eight tests, checks browser JavaScript with Node 22, and executes the expand/backfill scenario with a required compatible verdict. Its artifact contains the executed report and a separate GitHub run record. The report's GitLab `commit` and `pipeline` fields remain empty on GitHub; the companion file records the actual GitHub commit and run URL.
 
-Check [public Actions runs](https://github.com/Vcode2407/gitlab-releasesteward/actions/workflows/verify.yml) for an actual result before calling the workflow verified. GitHub execution is source-validation evidence and does not establish GitLab CI or Duo execution.
+The [first public verification run](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38074137450) passed for commit `3ae3adf29e40edabc52256cc4587ba76557d9d0f`. Check [later Actions runs](https://github.com/Vcode2407/gitlab-releasesteward/actions/workflows/verify.yml) when reviewing another revision. GitHub execution is source-validation evidence and does not establish GitLab CI or Duo execution.
 
 ## GitLab Duo integration: prepared, not verified
 

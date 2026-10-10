@@ -32,7 +32,7 @@ The report includes a SHA-256 hash of the harness source and a reproducible hash
 
 A prepared `.gitlab-ci.yml` defines a test job and an evidence job using Python 3.12. A prepared custom Duo flow contains an inspector with file/command tools and a separate evidence reviewer with read-only file access. The inspector is instructed to run the actual harness and tests; the reviewer must cite observed check IDs and hashes and reject unsupported success claims. The agent environment file checks Python 3.12 and SQLite in GitLab's default image. Catalog validation, runner setup, project enablement, and actual Duo execution are still pending.
 
-A separate pinned GitHub Actions workflow runs the eight tests, browser syntax check, and expand/backfill evidence gate. Its artifact stores the actual GitHub run provenance separately from GitLab metadata. Check its public run before claiming execution success; GitHub CI does not establish the event's GitLab automation requirement.
+A separate pinned GitHub Actions workflow runs the eight tests, browser syntax check, and expand/backfill evidence gate. Its artifact stores the actual GitHub run provenance separately from GitLab metadata. The [first public run](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38074137450) passed for commit `3ae3adf29e40edabc52256cc4587ba76557d9d0f`; GitHub CI does not establish the event's GitLab automation requirement.
 
 Built with: Python, SQLite, HTML/CSS/JavaScript, SHA-256 evidence hashing, prepared GitLab CI configuration, and a prepared GitLab Duo custom-flow v1 configuration.
 
@@ -81,11 +81,12 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | Public MIT GitLab repository URL | Pending publication to the provided project. |
 | Public MIT GitHub source mirror | [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward), published. The required GitLab URL remains pending. |
 | Runnable source and assets | Public mirror, README, and [clean-checkout judge guide](JUDGE_SETUP.md) available. |
-| GitHub source verification | [Public Actions](https://github.com/Vcode2407/gitlab-releasesteward/actions/workflows/verify.yml); workflow prepared, actual run result must be checked. |
+| GitHub source verification | [Successful public run](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38074137450) for `3ae3adf`; later source revisions need their own current result. |
 | Visible GitLab pipeline history | Configuration prepared; actual execution/link pending. |
 | GitLab Duo flow/catalog URL and session evidence | Pending onboarding, registration, runner setup, enablement, and live execution. |
 | Contributor and Duo setup instructions | [Concrete onboarding, environment, goal, and evidence guide](GITLAB_SETUP.md) prepared. |
 | Public YouTube video under three minutes | Pending actual platform recording and upload. |
+| Actual local development walkthrough | [Narrated 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; clearly discloses pending GitLab Duo and CI. |
 | Source/evidence hashes and CI artifact link | Local reports supported; final verified platform artifact link pending. |
 | Deployment/Google Cloud bonus URL | None claimed. |
 | Original project URL for Path B | Not applicable to the proposed new Path A entry. |

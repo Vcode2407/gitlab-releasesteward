@@ -1,0 +1,525 @@
+{
+  "type": "Actual local browser development recording",
+  "recordedAt": "2026-10-10T18:00:29.792Z",
+  "gitlabDuoVerified": false,
+  "gitlabCiVerified": false,
+  "stages": [
+    {
+      "id": "intro",
+      "narrationStartMs": 722,
+      "audioDurationSeconds": 14.282086167800454,
+      "text": "ReleaseSteward asks a practical rollout question: can old and new clients still share the same database? This is the working local SQLite harness. GitLab Duo and GitLab pipelines have not been verified."
+    },
+    {
+      "id": "rename",
+      "narrationStartMs": 16296,
+      "audioDurationSeconds": 13.952154195011337,
+      "text": "Start with a one release rename from status to state. The migration succeeds, but only three of nine checks pass. The old client cannot read its column. A green migration is not enough."
+    },
+    {
+      "id": "compatible",
+      "narrationStartMs": 31429,
+      "audioDurationSeconds": 15.152380952380952,
+      "text": "Choose the compatible strategy. This executes the authored expand and backfill fixture. A model is not generating a repair. All nine checks now pass, including reads, writes and inserts in both directions."
+    },
+    {
+      "id": "evidence",
+      "narrationStartMs": 47771,
+      "audioDurationSeconds": 10.242539682539682,
+      "text": "Open the technical evidence to inspect the executed SQL, schema and reproducible hashes. These results come from actual database execution."
+    },
+    {
+      "id": "export",
+      "narrationStartMs": 61509,
+      "audioDurationSeconds": 7.8080725623582765,
+      "text": "Export saves the actual JSON report for review. Local reports do not invent a pipeline URL."
+    },
+    {
+      "id": "required",
+      "narrationStartMs": 70795,
+      "audioDurationSeconds": 11.987482993197279,
+      "text": "Now add a required column without a default. Existing rows cause the migration to fail. The remaining checks are skipped, rather than presented as executed success."
+    },
+    {
+      "id": "limits",
+      "narrationStartMs": 83909,
+      "audioDurationSeconds": 16.881496598639455,
+      "text": "Every audit is isolated in memory. These are controlled fixtures, not production certification. Actual GitLab Duo execution, platform evidence and the final submission video remain pending. A human retains the release decision."
+    }
+  ],
+  "responses": [
+    {
+      "elapsedMs": 16197,
+      "status": 200,
+      "report": {
+        "scenario": "rename-column",
+        "name": "Rename status in one release",
+        "description": "The new client works, but a rolling deployment still has clients reading status.",
+        "verdict": "blocked",
+        "passed": 3,
+        "total": 9,
+        "checks": [
+          {
+            "id": "migration",
+            "name": "Migration applies to existing rows",
+            "passed": true,
+            "expected": "All statements succeed atomically",
+            "actual": "Applied"
+          },
+          {
+            "id": "rows",
+            "name": "Original records retain the old-client shape",
+            "passed": false,
+            "expected": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ],
+            "actual": "no such column: status"
+          },
+          {
+            "id": "old-read",
+            "name": "Old client can read open work",
+            "passed": false,
+            "expected": [
+              1
+            ],
+            "actual": "no such column: status"
+          },
+          {
+            "id": "new-read",
+            "name": "New client can read open work",
+            "passed": true,
+            "expected": [
+              1
+            ],
+            "actual": [
+              1
+            ]
+          },
+          {
+            "id": "old-write",
+            "name": "Old writes are visible to new clients",
+            "passed": false,
+            "expected": "closed",
+            "actual": "no such column: status"
+          },
+          {
+            "id": "new-write",
+            "name": "New writes are visible to old clients",
+            "passed": false,
+            "expected": "open",
+            "actual": "no such column: status"
+          },
+          {
+            "id": "old-insert",
+            "name": "Old inserts have a new state and default priority",
+            "passed": false,
+            "expected": [
+              "open",
+              "normal"
+            ],
+            "actual": "table work_orders has no column named status"
+          },
+          {
+            "id": "new-insert",
+            "name": "New inserts remain readable by old clients",
+            "passed": false,
+            "expected": [
+              "closed",
+              "normal"
+            ],
+            "actual": "no such column: status"
+          },
+          {
+            "id": "rollback",
+            "name": "Rollback preserves original data",
+            "passed": true,
+            "expected": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ],
+            "actual": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "sql": "ALTER TABLE work_orders RENAME COLUMN status TO state",
+            "passed": true
+          }
+        ],
+        "schema": [
+          "CREATE TABLE work_orders (id INTEGER PRIMARY KEY, title TEXT NOT NULL, state TEXT NOT NULL DEFAULT 'open')"
+        ],
+        "repairScenario": "expand-contract",
+        "generatedAt": "2026-10-10T18:00:45.884850+00:00",
+        "evidenceHash": "605ffde483be2b130c36105f0706375c7ca68d125a7915992fee816c64fcd03b",
+        "sourceHash": "707dcf1356f5a4450c2cd48a9afc996efa9c854225de0b8264e492517311310d",
+        "commit": null,
+        "pipeline": null,
+        "runtime": {
+          "python": "3.12.10",
+          "sqlite": "3.49.1"
+        },
+        "mode": "Actual local SQLite checks; GitLab Duo execution has not been verified"
+      }
+    },
+    {
+      "elapsedMs": 31379,
+      "status": 200,
+      "report": {
+        "scenario": "expand-contract",
+        "name": "Expand, backfill, keep both clients compatible",
+        "description": "Keep status while introducing state. Synchronize old and new writes during the rollout.",
+        "verdict": "compatible",
+        "passed": 9,
+        "total": 9,
+        "checks": [
+          {
+            "id": "migration",
+            "name": "Migration applies to existing rows",
+            "passed": true,
+            "expected": "All statements succeed atomically",
+            "actual": "Applied"
+          },
+          {
+            "id": "rows",
+            "name": "Original records retain the old-client shape",
+            "passed": true,
+            "expected": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ],
+            "actual": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ]
+          },
+          {
+            "id": "old-read",
+            "name": "Old client can read open work",
+            "passed": true,
+            "expected": [
+              1
+            ],
+            "actual": [
+              1
+            ]
+          },
+          {
+            "id": "new-read",
+            "name": "New client can read open work",
+            "passed": true,
+            "expected": [
+              1
+            ],
+            "actual": [
+              1
+            ]
+          },
+          {
+            "id": "old-write",
+            "name": "Old writes are visible to new clients",
+            "passed": true,
+            "expected": "closed",
+            "actual": "closed"
+          },
+          {
+            "id": "new-write",
+            "name": "New writes are visible to old clients",
+            "passed": true,
+            "expected": "open",
+            "actual": "open"
+          },
+          {
+            "id": "old-insert",
+            "name": "Old inserts have a new state and default priority",
+            "passed": true,
+            "expected": [
+              "open",
+              "normal"
+            ],
+            "actual": [
+              "open",
+              "normal"
+            ]
+          },
+          {
+            "id": "new-insert",
+            "name": "New inserts remain readable by old clients",
+            "passed": true,
+            "expected": [
+              "closed",
+              "normal"
+            ],
+            "actual": [
+              "closed",
+              "normal"
+            ]
+          },
+          {
+            "id": "rollback",
+            "name": "Rollback preserves original data",
+            "passed": true,
+            "expected": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ],
+            "actual": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ]
+          }
+        ],
+        "operations": [
+          {
+            "sql": "ALTER TABLE work_orders ADD COLUMN state TEXT",
+            "passed": true
+          },
+          {
+            "sql": "ALTER TABLE work_orders ADD COLUMN priority TEXT NOT NULL DEFAULT 'normal'",
+            "passed": true
+          },
+          {
+            "sql": "UPDATE work_orders SET state = status",
+            "passed": true
+          },
+          {
+            "sql": "CREATE TRIGGER sync_status AFTER UPDATE OF status ON work_orders WHEN NEW.state IS NOT NEW.status BEGIN UPDATE work_orders SET state = NEW.status WHERE id = NEW.id; END",
+            "passed": true
+          },
+          {
+            "sql": "CREATE TRIGGER sync_state AFTER UPDATE OF state ON work_orders WHEN NEW.status IS NOT NEW.state BEGIN UPDATE work_orders SET status = NEW.state WHERE id = NEW.id; END",
+            "passed": true
+          },
+          {
+            "sql": "CREATE TRIGGER sync_insert AFTER INSERT ON work_orders BEGIN UPDATE work_orders SET state = COALESCE(NEW.state, NEW.status), status = COALESCE(NEW.state, NEW.status) WHERE id = NEW.id; END",
+            "passed": true
+          }
+        ],
+        "schema": [
+          "CREATE TRIGGER sync_insert AFTER INSERT ON work_orders BEGIN UPDATE work_orders SET state = COALESCE(NEW.state, NEW.status), status = COALESCE(NEW.state, NEW.status) WHERE id = NEW.id; END",
+          "CREATE TRIGGER sync_state AFTER UPDATE OF state ON work_orders WHEN NEW.status IS NOT NEW.state BEGIN UPDATE work_orders SET status = NEW.state WHERE id = NEW.id; END",
+          "CREATE TRIGGER sync_status AFTER UPDATE OF status ON work_orders WHEN NEW.state IS NOT NEW.status BEGIN UPDATE work_orders SET state = NEW.status WHERE id = NEW.id; END",
+          "CREATE TABLE work_orders (id INTEGER PRIMARY KEY, title TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open', state TEXT, priority TEXT NOT NULL DEFAULT 'normal')"
+        ],
+        "repairScenario": null,
+        "generatedAt": "2026-10-10T18:01:01.065160+00:00",
+        "evidenceHash": "6ebe65e20c571027663adaeeb51c20e7334a924d43b9b231c79d2d8f02fa2ddd",
+        "sourceHash": "707dcf1356f5a4450c2cd48a9afc996efa9c854225de0b8264e492517311310d",
+        "commit": null,
+        "pipeline": null,
+        "runtime": {
+          "python": "3.12.10",
+          "sqlite": "3.49.1"
+        },
+        "mode": "Actual local SQLite checks; GitLab Duo execution has not been verified"
+      }
+    },
+    {
+      "elapsedMs": 70652,
+      "status": 200,
+      "report": {
+        "scenario": "required-column",
+        "name": "Add a required column without a default",
+        "description": "Existing rows cannot satisfy a new NOT NULL priority column.",
+        "verdict": "blocked",
+        "passed": 0,
+        "total": 9,
+        "checks": [
+          {
+            "id": "migration",
+            "name": "Migration applies to existing rows",
+            "passed": false,
+            "expected": "All statements succeed atomically",
+            "actual": "Rolled back after a SQLite error"
+          },
+          {
+            "id": "rows",
+            "name": "Original records retain the old-client shape",
+            "passed": false,
+            "skipped": true,
+            "expected": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ],
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "old-read",
+            "name": "Old client can read open work",
+            "passed": false,
+            "skipped": true,
+            "expected": [
+              1
+            ],
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "new-read",
+            "name": "New client can read open work",
+            "passed": false,
+            "skipped": true,
+            "expected": [
+              1
+            ],
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "old-write",
+            "name": "Old writes are visible to new clients",
+            "passed": false,
+            "skipped": true,
+            "expected": "closed",
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "new-write",
+            "name": "New writes are visible to old clients",
+            "passed": false,
+            "skipped": true,
+            "expected": "open",
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "old-insert",
+            "name": "Old inserts have a new state and default priority",
+            "passed": false,
+            "skipped": true,
+            "expected": [
+              "open",
+              "normal"
+            ],
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "new-insert",
+            "name": "New inserts remain readable by old clients",
+            "passed": false,
+            "skipped": true,
+            "expected": [
+              "closed",
+              "normal"
+            ],
+            "actual": "Not run: migration failed"
+          },
+          {
+            "id": "rollback",
+            "name": "Rollback preserves original data",
+            "passed": false,
+            "skipped": true,
+            "expected": [
+              [
+                1,
+                "Install the display",
+                "open"
+              ],
+              [
+                2,
+                "Repair the scanner",
+                "closed"
+              ]
+            ],
+            "actual": "Not run: migration failed"
+          }
+        ],
+        "operations": [
+          {
+            "sql": "ALTER TABLE work_orders ADD COLUMN priority TEXT NOT NULL",
+            "passed": false,
+            "error": "Cannot add a NOT NULL column with default value NULL"
+          }
+        ],
+        "schema": [
+          "CREATE TABLE work_orders (id INTEGER PRIMARY KEY, title TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open')"
+        ],
+        "repairScenario": "expand-contract",
+        "generatedAt": "2026-10-10T18:01:40.337836+00:00",
+        "evidenceHash": "3e412ccee31f233447dd50b2863329a6066624e2629189f531fd8367f01b0135",
+        "sourceHash": "707dcf1356f5a4450c2cd48a9afc996efa9c854225de0b8264e492517311310d",
+        "commit": null,
+        "pipeline": null,
+        "runtime": {
+          "python": "3.12.10",
+          "sqlite": "3.49.1"
+        },
+        "mode": "Actual local SQLite checks; GitLab Duo execution has not been verified"
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "exportedFile": "releasesteward-exported-expand-evidence.json",
+  "elapsedMs": 110090,
+  "videoSha256": "c92a61ccf012705f6ddd5c789a088d98d2f6328c97c2919f30b70bb1857bc7ca",
+  "editingDisclosure": "Screen recording of actual local actions, with Windows English speech and a permanent development-status banner. No platform execution is simulated.",
+  "sourceCommit": "3ae3adf29e40edabc52256cc4587ba76557d9d0f",
+  "video": "releasesteward-local-development.mp4",
+  "durationSeconds": 110.13,
+  "scope": "Controlled local SQLite fixtures; no live GitLab Duo or GitLab CI execution."
+}

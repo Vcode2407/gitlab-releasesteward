@@ -1,0 +1,180 @@
+{
+  "scenario": "expand-contract",
+  "name": "Expand, backfill, keep both clients compatible",
+  "description": "Keep status while introducing state. Synchronize old and new writes during the rollout.",
+  "verdict": "compatible",
+  "passed": 9,
+  "total": 9,
+  "checks": [
+    {
+      "id": "migration",
+      "name": "Migration applies to existing rows",
+      "passed": true,
+      "expected": "All statements succeed atomically",
+      "actual": "Applied"
+    },
+    {
+      "id": "rows",
+      "name": "Original records retain the old-client shape",
+      "passed": true,
+      "expected": [
+        [
+          1,
+          "Install the display",
+          "open"
+        ],
+        [
+          2,
+          "Repair the scanner",
+          "closed"
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          "Install the display",
+          "open"
+        ],
+        [
+          2,
+          "Repair the scanner",
+          "closed"
+        ]
+      ]
+    },
+    {
+      "id": "old-read",
+      "name": "Old client can read open work",
+      "passed": true,
+      "expected": [
+        1
+      ],
+      "actual": [
+        1
+      ]
+    },
+    {
+      "id": "new-read",
+      "name": "New client can read open work",
+      "passed": true,
+      "expected": [
+        1
+      ],
+      "actual": [
+        1
+      ]
+    },
+    {
+      "id": "old-write",
+      "name": "Old writes are visible to new clients",
+      "passed": true,
+      "expected": "closed",
+      "actual": "closed"
+    },
+    {
+      "id": "new-write",
+      "name": "New writes are visible to old clients",
+      "passed": true,
+      "expected": "open",
+      "actual": "open"
+    },
+    {
+      "id": "old-insert",
+      "name": "Old inserts have a new state and default priority",
+      "passed": true,
+      "expected": [
+        "open",
+        "normal"
+      ],
+      "actual": [
+        "open",
+        "normal"
+      ]
+    },
+    {
+      "id": "new-insert",
+      "name": "New inserts remain readable by old clients",
+      "passed": true,
+      "expected": [
+        "closed",
+        "normal"
+      ],
+      "actual": [
+        "closed",
+        "normal"
+      ]
+    },
+    {
+      "id": "rollback",
+      "name": "Rollback preserves original data",
+      "passed": true,
+      "expected": [
+        [
+          1,
+          "Install the display",
+          "open"
+        ],
+        [
+          2,
+          "Repair the scanner",
+          "closed"
+        ]
+      ],
+      "actual": [
+        [
+          1,
+          "Install the display",
+          "open"
+        ],
+        [
+          2,
+          "Repair the scanner",
+          "closed"
+        ]
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "sql": "ALTER TABLE work_orders ADD COLUMN state TEXT",
+      "passed": true
+    },
+    {
+      "sql": "ALTER TABLE work_orders ADD COLUMN priority TEXT NOT NULL DEFAULT 'normal'",
+      "passed": true
+    },
+    {
+      "sql": "UPDATE work_orders SET state = status",
+      "passed": true
+    },
+    {
+      "sql": "CREATE TRIGGER sync_status AFTER UPDATE OF status ON work_orders WHEN NEW.state IS NOT NEW.status BEGIN UPDATE work_orders SET state = NEW.status WHERE id = NEW.id; END",
+      "passed": true
+    },
+    {
+      "sql": "CREATE TRIGGER sync_state AFTER UPDATE OF state ON work_orders WHEN NEW.status IS NOT NEW.state BEGIN UPDATE work_orders SET status = NEW.state WHERE id = NEW.id; END",
+      "passed": true
+    },
+    {
+      "sql": "CREATE TRIGGER sync_insert AFTER INSERT ON work_orders BEGIN UPDATE work_orders SET state = COALESCE(NEW.state, NEW.status), status = COALESCE(NEW.state, NEW.status) WHERE id = NEW.id; END",
+      "passed": true
+    }
+  ],
+  "schema": [
+    "CREATE TRIGGER sync_insert AFTER INSERT ON work_orders BEGIN UPDATE work_orders SET state = COALESCE(NEW.state, NEW.status), status = COALESCE(NEW.state, NEW.status) WHERE id = NEW.id; END",
+    "CREATE TRIGGER sync_state AFTER UPDATE OF state ON work_orders WHEN NEW.status IS NOT NEW.state BEGIN UPDATE work_orders SET status = NEW.state WHERE id = NEW.id; END",
+    "CREATE TRIGGER sync_status AFTER UPDATE OF status ON work_orders WHEN NEW.state IS NOT NEW.status BEGIN UPDATE work_orders SET state = NEW.status WHERE id = NEW.id; END",
+    "CREATE TABLE work_orders (id INTEGER PRIMARY KEY, title TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open', state TEXT, priority TEXT NOT NULL DEFAULT 'normal')"
+  ],
+  "repairScenario": null,
+  "generatedAt": "2026-10-10T18:01:01.065160+00:00",
+  "evidenceHash": "6ebe65e20c571027663adaeeb51c20e7334a924d43b9b231c79d2d8f02fa2ddd",
+  "sourceHash": "707dcf1356f5a4450c2cd48a9afc996efa9c854225de0b8264e492517311310d",
+  "commit": null,
+  "pipeline": null,
+  "runtime": {
+    "python": "3.12.10",
+    "sqlite": "3.49.1"
+  },
+  "mode": "Actual local SQLite checks; GitLab Duo execution has not been verified"
+}
