@@ -1,0 +1,24 @@
+{
+  "video": "releasesteward-local-development.mp4",
+  "verifiedAt": "2026-10-11T07:50:59.231325+00:00",
+  "operation": "Removed all audio tracks and optional container metadata; copied the complete encoded video stream without re-encoding.",
+  "durationSeconds": 110.125,
+  "bytes": 2640045,
+  "sha256": "d03076015778aaa48872022f3e5dc87e0c1499f2eba2f495f4fbd4d3658ddeab",
+  "audioStreamCount": 0,
+  "streamTypes": [
+    "video"
+  ],
+  "videoCodec": "h264",
+  "videoWidth": 1280,
+  "videoHeight": 972,
+  "videoPacketCount": 2643,
+  "videoPayloadSha256": "9cc9129d23e60206ffa241caddc300e84cb1d9ac88b37adf5fe43cbb05536a00",
+  "codecConfigurationSha256": "08dbced102968e209b3c86777e3b041d5bf1dbbbeeb53583915903ca05623f82",
+  "originalFileSha256": "c92a61ccf012705f6ddd5c789a088d98d2f6328c97c2919f30b70bb1857bc7ca",
+  "originalVideoDurationSeconds": 110.125,
+  "encodedVideoUnchanged": true,
+  "removedAudioOnlyTailSeconds": 0,
+  "fullVideoDecodePassed": true,
+  "disclosure": "Actual application footage, captions and provider-status labels are unchanged. This edit does not change software authoring, integration provenance, or submission readiness."
+}

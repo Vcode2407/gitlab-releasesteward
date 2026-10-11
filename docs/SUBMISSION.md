@@ -86,7 +86,7 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | GitLab Duo flow/catalog URL and session evidence | Pending onboarding, registration, runner setup, enablement, and live execution. |
 | Contributor and Duo setup instructions | [Concrete onboarding, environment, goal, and evidence guide](GITLAB_SETUP.md) prepared. |
 | Public YouTube video under three minutes | Pending actual platform recording and upload. |
-| Actual local development walkthrough | [Narrated 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; clearly discloses pending GitLab Duo and CI. |
+| Actual local development walkthrough | [Silent 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; clearly discloses pending GitLab Duo and CI. |
 | Source/evidence hashes and CI artifact link | Local reports supported; final verified platform artifact link pending. |
 | Deployment/Google Cloud bonus URL | None claimed. |
 | Original project URL for Path B | Not applicable to the proposed new Path A entry. |

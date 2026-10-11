@@ -4,7 +4,7 @@ A new Path A entry for **Life After Code**. ReleaseSteward checks whether old an
 
 Public MIT source mirror: [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward). GitLab publication, GitLab CI, and GitLab Duo execution remain pending. The GitHub mirror does not complete the event's platform requirements.
 
-[Watch the actual narrated local walkthrough](docs/LOCAL_DEMO.md) (1:50): real rename, expand/backfill and failed-migration results, with downloadable recording evidence. Live GitLab execution remains pending.
+[Watch the actual silent local walkthrough](docs/LOCAL_DEMO.md) (1:50): real rename, expand/backfill and failed-migration results, with downloadable recording evidence. Live GitLab execution remains pending.
 
 ## Run and verify
 

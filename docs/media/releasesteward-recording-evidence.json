@@ -6,45 +6,38 @@
   "stages": [
     {
       "id": "intro",
-      "narrationStartMs": 722,
-      "audioDurationSeconds": 14.282086167800454,
-      "text": "ReleaseSteward asks a practical rollout question: can old and new clients still share the same database? This is the working local SQLite harness. GitLab Duo and GitLab pipelines have not been verified."
+      "text": "ReleaseSteward asks a practical rollout question: can old and new clients still share the same database? This is the working local SQLite harness. GitLab Duo and GitLab pipelines have not been verified.",
+      "walkthroughStartMs": 722
     },
     {
       "id": "rename",
-      "narrationStartMs": 16296,
-      "audioDurationSeconds": 13.952154195011337,
-      "text": "Start with a one release rename from status to state. The migration succeeds, but only three of nine checks pass. The old client cannot read its column. A green migration is not enough."
+      "text": "Start with a one release rename from status to state. The migration succeeds, but only three of nine checks pass. The old client cannot read its column. A green migration is not enough.",
+      "walkthroughStartMs": 16296
     },
     {
       "id": "compatible",
-      "narrationStartMs": 31429,
-      "audioDurationSeconds": 15.152380952380952,
-      "text": "Choose the compatible strategy. This executes the authored expand and backfill fixture. A model is not generating a repair. All nine checks now pass, including reads, writes and inserts in both directions."
+      "text": "Choose the compatible strategy. This executes the authored expand and backfill fixture. A model is not generating a repair. All nine checks now pass, including reads, writes and inserts in both directions.",
+      "walkthroughStartMs": 31429
     },
     {
       "id": "evidence",
-      "narrationStartMs": 47771,
-      "audioDurationSeconds": 10.242539682539682,
-      "text": "Open the technical evidence to inspect the executed SQL, schema and reproducible hashes. These results come from actual database execution."
+      "text": "Open the technical evidence to inspect the executed SQL, schema and reproducible hashes. These results come from actual database execution.",
+      "walkthroughStartMs": 47771
     },
     {
       "id": "export",
-      "narrationStartMs": 61509,
-      "audioDurationSeconds": 7.8080725623582765,
-      "text": "Export saves the actual JSON report for review. Local reports do not invent a pipeline URL."
+      "text": "Export saves the actual JSON report for review. Local reports do not invent a pipeline URL.",
+      "walkthroughStartMs": 61509
     },
     {
       "id": "required",
-      "narrationStartMs": 70795,
-      "audioDurationSeconds": 11.987482993197279,
-      "text": "Now add a required column without a default. Existing rows cause the migration to fail. The remaining checks are skipped, rather than presented as executed success."
+      "text": "Now add a required column without a default. Existing rows cause the migration to fail. The remaining checks are skipped, rather than presented as executed success.",
+      "walkthroughStartMs": 70795
     },
     {
       "id": "limits",
-      "narrationStartMs": 83909,
-      "audioDurationSeconds": 16.881496598639455,
-      "text": "Every audit is isolated in memory. These are controlled fixtures, not production certification. Actual GitLab Duo execution, platform evidence and the final submission video remain pending. A human retains the release decision."
+      "text": "Every audit is isolated in memory. These are controlled fixtures, not production certification. Actual GitLab Duo execution, platform evidence and the final submission video remain pending. A human retains the release decision.",
+      "walkthroughStartMs": 83909
     }
   ],
   "responses": [
@@ -516,10 +509,13 @@
   "consoleErrors": [],
   "exportedFile": "releasesteward-exported-expand-evidence.json",
   "elapsedMs": 110090,
-  "videoSha256": "c92a61ccf012705f6ddd5c789a088d98d2f6328c97c2919f30b70bb1857bc7ca",
-  "editingDisclosure": "Screen recording of actual local actions, with Windows English speech and a permanent development-status banner. No platform execution is simulated.",
+  "videoSha256": "d03076015778aaa48872022f3e5dc87e0c1499f2eba2f495f4fbd4d3658ddeab",
+  "editingDisclosure": "Silent screen recording of actual local actions, with unchanged English application text and permanent development-status banner. All audio has been removed without changing the encoded video stream. No platform or model execution is simulated.",
   "sourceCommit": "3ae3adf29e40edabc52256cc4587ba76557d9d0f",
   "video": "releasesteward-local-development.mp4",
-  "durationSeconds": 110.13,
-  "scope": "Controlled local SQLite fixtures; no live GitLab Duo or GitLab CI execution."
+  "durationSeconds": 110.125,
+  "scope": "Controlled local SQLite fixtures; no live GitLab Duo or GitLab CI execution.",
+  "audioStreamCount": 0,
+  "mediaVerification": "silent-video-verification.json",
+  "stageTextScope": "Timed written walkthrough of the observed recording; the current video has no audio track."
 }
