@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "project": "ReleaseSteward",
+  "mediaFile": "ReleaseSteward-refined-silent.mp4",
+  "sha256": "d528153d93f815b723dc872ee7eae77fb7052d7361b1c02e8bec732f4abad0b4",
+  "durationSeconds": 164,
+  "width": 1600,
+  "height": 1200,
+  "fps": 25,
+  "decodedFrames": 4100,
+  "audioStreams": 0,
+  "assembly": {
+    "unchangedOriginalSegments": 11,
+    "replacedScenes": [
+      "pipeline",
+      "tests",
+      "duo-commands"
+    ],
+    "actualSourceCaptures": 640,
+    "capturedImageFormat": "JPEG/JFIF returned by CUA; original .png filenames and bytes preserved.",
+    "replacedSceneSeconds": {
+      "pipeline": [
+        52,
+        64
+      ],
+      "tests": [
+        64,
+        72
+      ],
+      "duo-commands": [
+        96,
+        114
+      ]
+    },
+    "sourceFrameCounts": {
+      "ci-running": 164,
+      "ci-result": 211,
+      "duo-completed-replay-v3": 265
+    }
+  },
+  "completedDuo": {
+    "sessionId": 9307096,
+    "sourceCommit": "6897bd93c17de4eea897c4cec6ce580a2985652c",
+    "newRunPerformed": false,
+    "displayedAsCompletedSessionReplay": true,
+    "sessionUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096"
+  },
+  "capturePresentation": "Actual timestamped screen observations. Each25fps output tick holds the latest completed capture; no generated/interpolated frames, speed-up or continuous constant-rate recording claim. Later completed CI result is a hard cut.",
+  "qualityReview": {
+    "fullTechnicalDecode": true,
+    "all14SceneMidpointsVisuallyReviewed": true,
+    "nineOutputEventFramesVisuallyReviewed": true,
+    "continuousNormalSpeedVisualPlaybackReviewed": false,
+    "rootFinalOutputReviewPending": false,
+    "rootOutputFramesReviewed": 8,
+    "rootReviewMethod": "Three changed-scene midpoints and five event frames visually reviewed; eleven unchanged segments retain earlier root review and hash-identical verification. Agent separately reviewed fourteen midpoints and nine events. No continuous normal-speed playback visual review claimed.",
+    "rootFinalReviewAcceptedAtUtc": "2026-10-12T07:02:49.0530025Z"
+  },
+  "limits": [
+    "Screenshot observations retain their measured sampling, not continuous constant-rate recording.",
+    "A separate later completed CI result is an explicitly labelled hard cut.",
+    "Duo9307096 is completed-session browsing, not a new live run.",
+    "Historical failure, authored repair, prompt restriction, reviewer trace and fixture limits are retained.",
+    "Media rendering used no model/provider calls or deployment; the subsequent approved public upload is recorded separately.",
+    "Separate reviewer read_file traces are not exposed; the reviewer final note declares reads with matching hashes/check IDs.",
+    "Complete generated Duo JSON was not retrieved; actual inspector disk-read output verified hashes/check IDs.",
+    "Duo report CI metadata is empty; actual runner/session provenance is retained separately.",
+    "Changing later console text alters the whole-file sourceHash; historical Duo hashes remain unchanged."
+  ],
+  "developmentAssistance": "OpenAI Codex assisted implementation, testing, documentation and demo preparation. Final review and submission decisions remain with the entrant.",
+  "publicUploadPerformed": true,
+  "bytes": 4029364,
+  "codec": "h264",
+  "videoStreams": 1,
+  "reencoded": true,
+  "exactFrameTimestampsVerified": true,
+  "capturedCi": {
+    "pipelineId": 2937434867,
+    "testJobId": 17102697264,
+    "sourceCommit": "744274d338addf069d0e06634789e9bcef22eb35",
+    "changeScope": "Docs-only publication; migration harness unchanged.",
+    "observedRunningToPassed": true,
+    "pipelineUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937434867",
+    "testJobUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/jobs/17102697264",
+    "evidenceScope": "Dated execution evidence for the captured revision; later changes require their own CI result."
+  },
+  "englishCaptions": {
+    "path": "ReleaseSteward-refined-English-captions.srt",
+    "sha256": "ef302c8435e425e9a2d21c6cf8acf52310dafeb6b08b797b0f77de0ccfa5d53c",
+    "bytes": 2995,
+    "format": "SRT",
+    "language": "en",
+    "cueCount": 14,
+    "textAndTimingsUnchangedFromReviewedSource": true,
+    "lineEndings": "LF; hash identifies repository/download bytes",
+    "reviewedSourceSha256": "c3345d692e9c2a932e048fecfaf509e826ab456ab9f6e2e56a4252daf280af5e",
+    "reviewedSourceBytes": 3076,
+    "burnedInCaptionsAlsoPresent": true
+  },
+  "youtube": {
+    "url": "https://www.youtube.com/watch?v=xGsDpR_3hEg",
+    "title": "ReleaseSteward | Running GitLab CI and real Duo review | Silent demo",
+    "channel": "Vickie",
+    "publishedOn": "2026-10-12",
+    "visibilityObserved": "Public",
+    "manualEnglishSubtitlesObserved": "Published",
+    "anonymousOfficialOEmbedHttpStatus": 200,
+    "anonymousOfficialOEmbedTitleAndChannelMatched": true,
+    "signedInEmbeddedPlaybackReachedEnd": true,
+    "signedInEmbeddedPlaybackEndSeconds": 164.021,
+    "signedInEmbeddedPlaybackEnded": true,
+    "signedInEmbeddedPlaybackError": null,
+    "signedInEmbeddedPlaybackMethod": "Normal unseeked Devpost-embedded playback; root observed final read-only video DOM and visible English captions.",
+    "continuousVisualPlaybackReviewClaimed": false,
+    "signedOutPlaybackVerificationClaimed": false,
+    "observationMethod": "Root observed YouTube Studio publication and English subtitle status; anonymous official oEmbed metadata verified separately."
+  },
+  "previousEdit": {
+    "youtubeUrl": "https://www.youtube.com/watch?v=WwfkawIuRuE",
+    "mediaFile": "ReleaseSteward-final-silent.mp4",
+    "sha256": "29c5dedf5101a0f8e593e3fbde2e58a1d5d0cda6c2878cebf62a7a9998f3a8d1",
+    "provenanceFile": "releasesteward-final-video-provenance.json",
+    "retainedUnchanged": true
+  },
+  "devpostSubmissionClaimed": false
+}

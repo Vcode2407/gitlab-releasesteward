@@ -223,7 +223,7 @@ def main():
     if args.command == "serve":
         server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
         print(f"ReleaseSteward: http://127.0.0.1:{server.server_port}", flush=True)
-        print("Local SQLite execution. GitLab Duo access is pending.", flush=True)
+        print("Local SQLite execution. Recorded GitLab Duo inspection: https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096", flush=True)
         try:
             server.serve_forever()
         except KeyboardInterrupt:

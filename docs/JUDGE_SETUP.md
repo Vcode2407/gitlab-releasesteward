@@ -17,7 +17,7 @@ python release_steward.py serve
 
 On Windows with multiple Python installations, use `py -3.12` in place of `python`. On Linux, `python3.12` is suitable. The `release_steward.py serve` subcommand serves both the workbench assets and its audit API. It prints its actual address and binds to loopback. Open [the local workbench](http://127.0.0.1:4184). If that port is occupied, start with `python release_steward.py serve --port 4194` and open that printed URL. Stop the server with Ctrl+C.
 
-This checkout retains the static console message `GitLab Duo access is pending` from the original local setup. The verified October 12 platform execution is documented by the actual session linked above.
+The local workbench links the completed October 12 Duo inspection. Running local checks executes SQLite fixtures; it does not start another Duo session. The dated October 10 footage retains its original pending banner.
 
 ## Browser walkthrough
 
@@ -50,4 +50,4 @@ The reproducible `evidenceHash` depends on the scenario, migration, checks, and 
 
 The current suite contains nine tests. They cover the known fixtures, missing backfill, missing synchronization, rollback preservation of old/new client updates and newly inserted rows, reproducible hashes, actual-environment metadata, and rejection of arbitrary SQL scenario names. Browser success, local CLI success, GitHub CI success, GitLab CI success, and Duo execution are distinct evidence states.
 
-These checks cover one work-order fixture and three authored strategies. They do not certify arbitrary migrations, real workloads, or production rollback. A human makes the actual release decision. Review the linked public GitLab source, CI and actual Duo session alongside [the published silent 2:44 YouTube demo](https://www.youtube.com/watch?v=WwfkawIuRuE). [Final demo downloads and provenance](FINAL_DEMO.md) include the video and English captions. Final Devpost submission remains pending.
+These checks cover one work-order fixture and three authored strategies. They do not certify arbitrary migrations, real workloads, or production rollback. A human makes the actual release decision. Review the linked public GitLab source, CI and actual Duo session alongside [the revised public silent 2:44 YouTube demo](https://www.youtube.com/watch?v=xGsDpR_3hEg). [Final demo downloads and provenance](FINAL_DEMO.md) include the video and English captions. Final Devpost submission remains pending.

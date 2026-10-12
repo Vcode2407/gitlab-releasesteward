@@ -4,7 +4,7 @@ The [silent-video verification](media/silent-video-verification.json) records ze
 
 [Watch the silent video](media/releasesteward-local-development.mp4) — **1 minute 50 seconds**, recorded October 10, 2026 from source commit `3ae3adf29e40edabc52256cc4587ba76557d9d0f`.
 
-This is an actual isolated browser recording of ReleaseSteward executing its controlled SQLite fixtures. The audio track has been removed; the English application text and permanent banner remain unchanged. Its pending GitLab Duo/CI banner records the **October 10 capture state**. Later [verified CI and actual Duo session 9307096](GITLAB_SETUP.md) passed nine tests and 9/9 compatible checks. [The published final 2:44 demo](https://www.youtube.com/watch?v=WwfkawIuRuE) dates this historical footage and then shows labelled held captures of actual platform results. The table below describes the original local footage.
+This is an actual isolated browser recording of ReleaseSteward executing its controlled SQLite fixtures. The audio track has been removed; the English application text and permanent banner remain unchanged. Its pending GitLab Duo/CI banner records the **October 10 capture state**. Later [verified CI and actual Duo session 9307096](GITLAB_SETUP.md) passed nine tests and 9/9 compatible checks. [The revised public 2:44 demo](https://www.youtube.com/watch?v=xGsDpR_3hEg) dates this historical footage, shows timestamped actual CI changing from Running to Passed, and browses the completed Duo inspection. Later test results are an explicit hard cut, and other held platform captures retain their labels. The table below describes the original local footage.
 
 | Approximate time | Observed action |
 | --- | --- |
