@@ -154,7 +154,7 @@ def execute_audit(scenario_id):
         "evidenceHash": fingerprint(evidence), "sourceHash": source_hash,
         "commit": os.getenv("CI_COMMIT_SHA") or None, "pipeline": os.getenv("CI_PIPELINE_URL") or None,
         "runtime": {"python": sys.version.split()[0], "sqlite": sqlite3.sqlite_version},
-        "mode": "Actual local SQLite checks; GitLab Duo execution has not been verified",
+        "mode": "Actual controlled SQLite checks; platform execution requires separate evidence",
     }
 
 
