@@ -1,0 +1,37 @@
+{
+  "provider": "GitLab Duo",
+  "sessionId": 9306854,
+  "sessionUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9306854",
+  "runnerJobUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/jobs/17101022366",
+  "sessionStatus": "FINISHED",
+  "runtime": {
+    "python": "3.12.14",
+    "sqlite": "3.34.1",
+    "verification": "Independently read from the runner's actual agent-config setup output."
+  },
+  "harnessSourceHash": "90978d85e38792c9030f3cb3dc4212359dab4653ee8bcd7e68d308921654a897",
+  "matchingGitHubSourceCommit": "231a561437c5dc76dd5c31725a52b72bcc9d38e8",
+  "compatibleAudit": {
+    "passed": 8,
+    "total": 9,
+    "failedCheck": "rollback",
+    "diagnostic": "Rollback failed with a SQLite syntax error near DROP."
+  },
+  "tests": {
+    "total": 8,
+    "failed": 1
+  },
+  "executedConfiguration": {
+    "verification": "Read from the runner's actual flowConfig payload.",
+    "matchedLatestRepositoryYaml": false,
+    "renameCommandIncludedOutputPath": false,
+    "reviewerPromptReferencedOnlyIgnoredExpandReport": true
+  },
+  "independentReview": {
+    "completedSuccessfully": false,
+    "diagnostic": "Reviewer refused independent review because the requested report paths under artifacts/ were gitignored."
+  },
+  "compatibleGatePassed": false,
+  "readyToSubmit": false,
+  "scope": "Historical first fixture-only session. A finished status does not establish a passing gate. No result from the subsequent correction is claimed."
+}

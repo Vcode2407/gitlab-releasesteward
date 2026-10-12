@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from release_steward import execute_audit, SCENARIOS
+from release_steward import execute_audit, new_database, SCENARIOS
 
 
 class CompatibilityTests(unittest.TestCase):
@@ -34,6 +34,30 @@ class CompatibilityTests(unittest.TestCase):
             report = execute_audit("missing-backfill")
         checks = {item["id"]: item for item in report["checks"]}
         self.assertFalse(checks["new-read"]["passed"])
+
+    def test_expand_rollback_preserves_old_and_new_client_changes(self):
+        db = new_database()
+        try:
+            for sql in SCENARIOS["expand-contract"]["up"]:
+                db.execute(sql)
+            db.execute("UPDATE work_orders SET status='closed' WHERE id=1")
+            db.execute("UPDATE work_orders SET state='open' WHERE id=2")
+            db.execute("INSERT INTO work_orders (id,title,state) VALUES (3,'New-client work','closed')")
+            db.commit()
+            db.execute("BEGIN")
+            for sql in SCENARIOS["expand-contract"]["down"]:
+                db.execute(sql)
+            db.commit()
+            self.assertEqual(db.execute("SELECT id,title,status FROM work_orders ORDER BY id").fetchall(), [
+                (1, "Install the display", "closed"),
+                (2, "Repair the scanner", "open"),
+                (3, "New-client work", "closed"),
+            ])
+            self.assertEqual([row[1] for row in db.execute("PRAGMA table_info(work_orders)")], ["id", "title", "status"])
+            db.execute("INSERT INTO work_orders (id,title) VALUES (4,'Old-client default')")
+            self.assertEqual(db.execute("SELECT status FROM work_orders WHERE id=4").fetchone(), ("open",))
+        finally:
+            db.close()
 
     def test_missing_sync_trigger_is_caught(self):
         changed = dict(SCENARIOS["expand-contract"])

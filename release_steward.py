@@ -40,7 +40,10 @@ SCENARIOS = {
         ],
         "down": [
             "DROP TRIGGER sync_status", "DROP TRIGGER sync_state", "DROP TRIGGER sync_insert",
-            "ALTER TABLE work_orders DROP COLUMN state", "ALTER TABLE work_orders DROP COLUMN priority",
+            "CREATE TABLE work_orders_rollback (id INTEGER PRIMARY KEY, title TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open')",
+            "INSERT INTO work_orders_rollback (id, title, status) SELECT id, title, status FROM work_orders",
+            "DROP TABLE work_orders",
+            "ALTER TABLE work_orders_rollback RENAME TO work_orders",
         ],
         "repair": None,
     },

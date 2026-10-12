@@ -1,6 +1,6 @@
 # Reproduce ReleaseSteward
 
-Public source: [GitHub mirror](https://github.com/Vcode2407/gitlab-releasesteward). This guide reproduces the local database harness. Actual GitLab Duo and GitLab CI execution remain pending and have their own [setup guide](GITLAB_SETUP.md).
+Public source: [GitHub mirror](https://github.com/Vcode2407/gitlab-releasesteward). This guide reproduces the local database harness. The initial actual GitLab CI passed; the first Duo session failed its rollback gate and could not independently review the reports. Their history and the corrected flow's pending platform validation are in the [setup guide](GITLAB_SETUP.md).
 
 ## Clean checkout
 
@@ -46,6 +46,6 @@ The reproducible `evidenceHash` depends on the scenario, migration, checks, and 
 
 ## What this verifies
 
-The current suite contains eight tests. They cover the known fixtures, missing backfill, missing synchronization, reproducible hashes, actual-environment metadata, and rejection of arbitrary SQL scenario names. Browser success, local CLI success, GitHub CI success, GitLab CI success, and Duo execution are distinct evidence states.
+The current suite contains nine tests. They cover the known fixtures, missing backfill, missing synchronization, rollback preservation of old/new client updates and newly inserted rows, reproducible hashes, actual-environment metadata, and rejection of arbitrary SQL scenario names. Browser success, local CLI success, GitHub CI success, GitLab CI success, and Duo execution are distinct evidence states.
 
 These checks cover one work-order fixture and three authored strategies. They do not certify arbitrary migrations, real workloads, or production rollback. A human makes the actual release decision. Final judge materials must also include the required public GitLab repository, visible GitLab automation, actual Duo session, and public YouTube demonstration under three minutes.

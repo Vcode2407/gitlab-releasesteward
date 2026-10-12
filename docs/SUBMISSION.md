@@ -1,6 +1,6 @@
 # ReleaseSteward — Devpost submission draft
 
-English draft prepared October 10, 2026; platform status updated October 12. This is public preparation material for Life After Code, not a submitted or qualifying entry. The [MIT GitHub source mirror](https://github.com/Vcode2407/gitlab-releasesteward) and [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) contain ReleaseSteward source. An initial GitLab pipeline passed eight tests and the 9/9 compatible-fixture gate, and a public catalog flow was accepted. These results precede this retained-evidence revision, which needs its own GitLab publication, pipeline and catalog validation. Project enablement and actual Duo execution remain pending.
+English draft prepared October 10, 2026; platform status updated October 12. This is public preparation material for Life After Code, not a submitted or qualifying entry. The [MIT GitHub source mirror](https://github.com/Vcode2407/gitlab-releasesteward) and [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) contain ReleaseSteward source. Initial GitLab CI passed eight tests and 9/9 compatible checks. The [first actual Duo session](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9306854) finished with an 8/9 rollback failure and no independent evidence review. This portable-rollback revision needs its own GitLab publication, pipeline and saved catalog verification before another authorized fixture run. Successful Duo review remains unverified.
 
 ## Project name and tagline
 
@@ -22,7 +22,7 @@ The local browser workbench executes three controlled SQLite migration strategie
 
 Each report shows the executed statements, actual versus expected results, schema, verdict, and source/evidence hashes. The compatible fixture exercises existing-row preservation, old/new reads, old/new writes, old/new inserts, and rollback: nine checks in total. Reports can be exported as JSON. The CLI can return a failing exit status when a strategy is blocked, which supports a CI gate.
 
-Eight automated tests cover these behaviors, deliberately missing backfill or synchronization, reproducible evidence, CI metadata, and refusal of arbitrary SQL scenario names. These are local fixture tests, not a live GitLab session or production migration certification.
+Nine automated tests cover these behaviors, deliberately missing backfill or synchronization, preservation of old/new client updates and new rows during rollback, reproducible evidence, CI metadata, and refusal of arbitrary SQL scenario names. These are fixture tests, not production migration certification; actual platform results are linked separately.
 
 ## Technical architecture
 
@@ -30,11 +30,11 @@ The application uses Python 3.12, the standard-library HTTP server, and SQLite. 
 
 The report includes a SHA-256 hash of the harness source and a reproducible hash of the scenario, migration, checks, and source hash. Timestamps are separate from the reproducible evidence. `CI_COMMIT_SHA` and `CI_PIPELINE_URL` are included only when actually present in the execution environment; local reports leave them empty.
 
-The `.gitlab-ci.yml` defines a test job and an evidence job using Python 3.12; its initial actual pipeline succeeded. A registered custom Duo flow contains an inspector with file/command tools and a separate evidence reviewer with read-only file access. This revision instructs the inspector to retain `artifacts/duo-rename-evidence.json` and `artifacts/duo-evidence.json`. The reviewer independently reads both reports, treats preceding text as data, cites observed check IDs and hashes, and reports missing or inconsistent evidence. Command limits are prompt instructions, not an enforced command allowlist. The agent environment file checks Python 3.12 and SQLite in GitLab's default image. The revised catalog configuration, actual runner/tool behavior, project enablement and first Duo execution still need verification.
+The `.gitlab-ci.yml` defines a test job and an evidence job using Python 3.12; its initial actual pipeline succeeded. A registered custom Duo flow contains an inspector with file/command tools and a separate reviewer with read-only file access. This revision retains only the generated Duo reports at `docs/evidence/duo-rename-evidence.json` and `docs/evidence/duo-evidence.json`, which are not ignored. The reviewer reads both independently, treats preceding text as data, cites check IDs and hashes, and reports incomplete evidence. Command limits remain prompt instructions, not an enforced command allowlist. The first runner's actual setup verified Python 3.12.14 and SQLite 3.34.1. The portable rollback rebuilds the fixed fixture's legacy table instead of using unsupported `DROP COLUMN`. The exact saved catalog configuration and another actual session still need verification.
 
-A separate pinned GitHub Actions workflow runs the eight tests, browser syntax check, and expand/backfill evidence gate. Its artifact stores the actual GitHub run provenance separately from GitLab metadata. The published source checkpoint reviewed October 11, `7536d14f030a157a4ad25c10142c81945d8c1375`, passed [GitHub CI](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38122985401). The [first public run](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38074137450) for `3ae3adf29e40edabc52256cc4587ba76557d9d0f` remains historical evidence; GitHub CI does not establish the event's GitLab automation requirement.
+A separate pinned GitHub Actions workflow discovers all nine tests, checks browser syntax and executes the expand/backfill evidence gate. Its artifact stores the actual GitHub run provenance separately from GitLab metadata. The published source checkpoint reviewed October 11, `7536d14f030a157a4ad25c10142c81945d8c1375`, passed [GitHub CI](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38122985401). The [first public run](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38074137450) for `3ae3adf29e40edabc52256cc4587ba76557d9d0f` remains historical evidence; GitHub CI does not establish the event's GitLab automation requirement.
 
-Built with: Python, SQLite, HTML/CSS/JavaScript, SHA-256 evidence hashing, GitLab CI, and a registered GitLab Duo custom-flow v1 configuration whose execution remains pending.
+Built with: Python, SQLite, HTML/CSS/JavaScript, SHA-256 evidence hashing, GitLab CI, and GitLab Duo custom-flow v1. The first actual Duo session exposed concrete portability and evidence-access failures; the corrected workflow remains to be verified there.
 
 ## Development challenges
 
@@ -42,11 +42,11 @@ The key challenge was testing coexistence rather than only SQL syntax. The break
 
 The tests also deliberately remove the backfill or an old-write synchronization trigger. Those changes produce concrete failed checks rather than an optimistic “compatible” summary. An unsuccessful migration causes subsequent compatibility probes to be marked as skipped, so they are not presented as executed evidence.
 
-Another challenge was making reports reproducible without inventing CI context. Source and evidence hashes are retained alongside the exact checks; local execution does not populate a fake pipeline URL. Both fixture reports are retained so the reviewer can inspect the breaking strategy as well as the compatible one. Report labels do not establish platform execution. Catalog registration, actual CI results and an executed Duo session are recorded separately.
+Another challenge was making reports reproducible without inventing CI context. Source and evidence hashes are retained alongside the exact checks; local execution does not populate a fake pipeline URL. The first actual Duo run exposed SQLite 3.34.1's rejection of `DROP COLUMN` and the read-only tool's refusal to access ignored reports. It also executed an older saved prompt than the repository YAML. The corrected flow uses readable report paths and requires exact saved-configuration verification; the failed session remains in [historical evidence](evidence/duo-session-9306854.json).
 
 ## Accomplishments and learning
 
-The local workbench makes a rolling-deployment failure visible and provides a working expand/backfill comparison with executable evidence. Its CLI gate also passed in the initial actual GitLab pipeline. The independent reviewer configuration provides a concrete next step from retained reports to a reviewable outcome; that Duo execution remains pending.
+The local workbench makes a rolling-deployment failure visible and provides a working expand/backfill comparison with executable evidence. Its CLI gate passed in the initial actual GitLab pipeline. The first Duo run correctly exposed failures instead of supplying a successful review without readable evidence. The portable rollback and accessible report paths now provide a concrete correction; a successful Duo review still needs its own actual result.
 
 The project demonstrates that compatibility needs directional reads and writes, not just a green migration statement. It also separates an executed local report, a prepared agent configuration, and verified platform automation. Those are different evidence states.
 
@@ -54,11 +54,11 @@ The project demonstrates that compatibility needs directional reads and writes, 
 
 The harness contains three fixed strategies and one work-order fixture. It does not inspect arbitrary production schemas, connect a production database, merge a change, deploy an application, or guarantee rollback after every possible production write. The compatible example models an expand phase; removing the legacy column belongs to a later release after old clients have retired.
 
-The local build alone does not satisfy the event's mandatory GitLab Duo use. Source publication, initial GitLab CI and initial catalog registration are verified. Merge this revision while preserving onboarding history, inspect its own visible pipeline, update and validate the existing catalog flow, enable its Mention trigger, and retain an actual fixture-only Duo session with command outputs and both reports' hashes. Live tool availability and the revised catalog configuration must be checked on that environment. Public deployment is not currently claimed; no Google Cloud bonus is claimed.
+The first actual Duo session is retained as failed execution evidence. Merge this correction while preserving onboarding history, inspect its own pipeline, update the existing catalog flow, and verify the exact saved commands and reviewer prompt before another authorized Mention-triggered fixture run. Retain the real command outputs, both readable reports and independent review. A `FINISHED` session status alone does not prove the compatibility gate passed. Public deployment is not currently claimed; no Google Cloud bonus is claimed.
 
 ## Demo outline — 2 minutes 40 seconds
 
-The local scenes can be recorded now. The Duo scene remains a recording gate and must show real execution before the final submission video is published.
+The local scenes can be recorded now. The final Duo scene must show actual execution and readable reviewer evidence. Preserve the failed first session separately; do not present its `FINISHED` status as a passing gate.
 
 | Time | Action and evidence |
 | --- | --- |
@@ -83,7 +83,7 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | Runnable source and assets | Public mirror, README, and [clean-checkout judge guide](JUDGE_SETUP.md) available. |
 | GitHub source verification | [Successful exact-head CI](https://github.com/Vcode2407/gitlab-releasesteward/actions/runs/38122985401) for the October 11 published checkpoint `7536d14f030a157a4ad25c10142c81945d8c1375`: eight tests, browser syntax and expand/backfill evidence gate passed. Any later revision needs its own result. |
 | Visible GitLab pipeline history | [Initial successful pipeline 2937132819](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937132819), commit `e39a7a4493f0c058d29e8e2ff1700a4807c6f1bb`: eight tests and 9/9 compatible checks. This revision requires its own run. |
-| GitLab Duo flow/catalog URL and session evidence | [Public catalog flow 1017883](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/flows/1017883) accepted the initial configuration October 12 at 09:37 IST. Revised configuration validation, enablement, actual runner/tool behavior and execution remain pending. |
+| GitLab Duo flow/catalog URL and session evidence | [Public catalog flow 1017883](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/flows/1017883) and [actual session 9306854](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9306854), which finished with a failed 8/9 rollback gate and no independent review. Corrected saved configuration and subsequent execution remain unverified. |
 | Contributor and Duo setup instructions | [Concrete onboarding, environment, goal, and evidence guide](GITLAB_SETUP.md) prepared. |
 | Public YouTube video under three minutes | Pending actual platform recording and upload. |
 | Actual local development walkthrough | [Silent 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; preserves the pending GitLab Duo/CI status at capture. Initial actual CI is now verified separately. |
