@@ -2,7 +2,7 @@
 
 A new Path A entry for **Life After Code**. ReleaseSteward checks whether old and new application clients can coexist during a database migration. The local workbench executes real SQLite checks, compares a breaking rename with an expand/backfill strategy, and exports reproducible evidence.
 
-Public MIT source mirror: [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward). GitLab publication, GitLab CI, and GitLab Duo execution remain pending. The GitHub mirror does not complete the event's platform requirements.
+Public MIT source mirror: [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward). Contributor provisioning was approved October 12, 2026, and the [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) is available. ReleaseSteward source publication there, GitLab CI, and GitLab Duo execution remain pending. The GitHub mirror does not complete the event's platform requirements.
 
 [Watch the actual silent local walkthrough](docs/LOCAL_DEMO.md) (1:50): real rename, expand/backfill and failed-migration results, with downloadable recording evidence. Live GitLab execution remains pending.
 
@@ -30,8 +30,8 @@ The [first public verification run](https://github.com/Vcode2407/gitlab-releases
 
 GitLab Duo execution is mandatory for the event. The local harness alone is **not submission-ready**. `.gitlab/duo/release-steward.yaml` defines an inspector and independent evidence reviewer using the current custom-flow v1 schema. It has been prepared against documentation; GitLab's catalog and actual tools still need live validation. `.gitlab/duo/agent-config.yml` checks Python 3.12 and SQLite in the default flow image before the inspector starts. `.gitlab-ci.yml` runs tests and exports evidence with real `CI_COMMIT_SHA` and `CI_PIPELINE_URL` metadata when executed in GitLab. Local reports leave those fields empty.
 
-1. Complete [hackathon contributor onboarding](https://contributors.gitlab.com/transcend-hackathon/). Provisioning can take about 24 business hours.
-2. Put this new project in the provided GitLab project, retain the MIT license and run the pipeline.
+1. Follow the [assigned project's onboarding issue](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/work_items/1). Account registration and provisioning approval are complete; project access does not establish executed automation.
+2. Publish this new project while preserving the assigned project's initial commit and the original source history, retain the MIT license and run the pipeline.
 3. Register the flow in the AI Catalog, configure its runner, enable it for the project, and ask it to inspect the rename versus expand strategy.
 4. Verify actual command output and exported hashes; record the Duo session and visible pipeline history. If catalog validation rejects a field, fix it using the live instance's docs rather than claiming an executed flow.
 
