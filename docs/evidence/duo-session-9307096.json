@@ -1,0 +1,76 @@
+{
+  "provider": "GitLab Duo",
+  "sessionId": 9307096,
+  "sessionUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096",
+  "runnerJobUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/jobs/17101180671",
+  "sessionStatus": "FINISHED",
+  "finishedAt": "2026-10-12T04:37:45Z",
+  "runnerVerifiedAt": "2026-10-12T04:39:55.255Z",
+  "runnerJobSucceeded": true,
+  "gitlabSourceCommit": "6897bd93c17de4eea897c4cec6ce580a2985652c",
+  "matchingGitHubCodeCommit": "7241e58ce1382f31b4849ab0d2674a24fba7b2cd",
+  "sourceCheckoutLine": "Checking out 6897bd93 as detached HEAD (ref is refs/workloads/fe6635134a3)...",
+  "catalogVersion": "v1.2.0",
+  "savedConfigurationMatchesCode": true,
+  "bothExecutedPromptBlocksMatchCode": true,
+  "runtime": {
+    "python": "3.12.14",
+    "sqlite": "3.34.1",
+    "verification": "Actual runner setup output and report summaries."
+  },
+  "sourceHash": "b6b1b6bc57dab7d18ada8572bac94da13d28ed79f5f6fd2aef3306bf730c9795",
+  "renameAudit": {
+    "scenario": "rename-column",
+    "verdict": "blocked",
+    "passed": 3,
+    "total": 9,
+    "exitCode": 0,
+    "evidenceHash": "d7b6b6e7bf84417e1b1c89e26f75c936508edfe3164a2c999452ba730f54e95d",
+    "passedCheckIds": ["migration", "new-read", "rollback"],
+    "failedCheckIds": ["rows", "old-read", "old-write", "new-write", "old-insert", "new-insert"]
+  },
+  "compatibleAudit": {
+    "scenario": "expand-contract",
+    "verdict": "compatible",
+    "passed": 9,
+    "total": 9,
+    "exitCode": 0,
+    "evidenceHash": "961ff30b0cb769940754ead0a851f3e81077acc3bd38d0166deabc1b14f61577",
+    "passedCheckIds": ["migration", "rows", "old-read", "new-read", "old-write", "new-write", "old-insert", "new-insert", "rollback"],
+    "failedCheckIds": []
+  },
+  "tests": {
+    "passed": 9,
+    "total": 9,
+    "exitCode": 0,
+    "verification": "Actual command output reported Ran 9 tests, OK and EXIT tests=0."
+  },
+  "generatedReportPaths": ["docs/evidence/duo-rename-evidence.json", "docs/evidence/duo-evidence.json"],
+  "generatedReportsNonIgnoredAndUncommitted": true,
+  "reportHashesAndCheckIdsVerifiedFromActualInspectorDiskRead": true,
+  "generatedReportCiMetadata": {"commit": null, "pipeline": null},
+  "separateCiEvidence": {
+    "pipelineUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718",
+    "testJobUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/jobs/17101112723",
+    "actualTestTraceVerified": true,
+    "testsPassed": 9,
+    "testsTotal": 9,
+    "jobSucceeded": true,
+    "traceVerifiedAt": "2026-10-12T04:34:23.008Z"
+  },
+  "independentReview": {
+    "finalNoteCompleted": true,
+    "independentReadsDeclaredByReviewer": true,
+    "hashesAndCheckIdsMatchActualInspectorDiskRead": true,
+    "reviewerDidNotRunCommands": true,
+    "separateReadFileTracesExposed": false,
+    "qualification": "The reviewer final note declares independent disk reads and cites consistent hashes/check IDs. Its configured ui_log_events logs final answers only; separate read_file traces are not exposed."
+  },
+  "fullGeneratedJsonRetrieved": false,
+  "jsonDisplayQualification": "Compatible audit UI output is truncated at 4096 characters. Actual check output and a separate inspector disk-read command verify report hashes/check IDs. This record does not reconstruct a complete generated report.",
+  "firstFailedSessionRecord": "duo-session-9306854.json",
+  "compatibleGatePassed": true,
+  "finalPlatformVideoPublished": false,
+  "finalDevpostSubmissionVerified": false,
+  "scope": "Verified controlled-fixture execution and qualified reviewer note. No production migration, Duo-generated repair or rollout approval is claimed."
+}
