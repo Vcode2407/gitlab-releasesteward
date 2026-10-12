@@ -1,6 +1,6 @@
-# ReleaseSteward — Devpost submission draft
+# ReleaseSteward — Devpost submission record
 
-English draft prepared October 10, 2026; platform status updated October 12. This is preparation material, not a submitted entry. The [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) detects MIT and retains verified code `6897bd93c17de4eea897c4cec6ce580a2985652c`. Its [pipeline](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718) passed nine tests and the compatible 9/9 gate. [Corrected actual Duo session 9307096](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096) also passed all nine tests and nine compatible checks on SQLite 3.34.1 and completed a consistent reviewer note. Separate reviewer file-read traces are unavailable. [The revised silent 2:44 demo is published on YouTube](https://www.youtube.com/watch?v=xGsDpR_3hEg), with English captions and [media/provenance](FINAL_DEMO.md). Final Devpost submission remains pending.
+English draft prepared October 10, 2026; this record was updated after [the entry was submitted to Life After Code](https://devpost.com/software/releasesteward) on October 12 at 10:58 UTC / 16:28 IST. Devpost displayed **Project submitted!** and **Submitted to Life After Code**. The [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) detects MIT and retains verified code `6897bd93c17de4eea897c4cec6ce580a2985652c`. Its [pipeline](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718) passed nine tests and the compatible 9/9 gate. [Corrected actual Duo session 9307096](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096) also passed all nine tests and nine compatible checks on SQLite 3.34.1 and completed a consistent reviewer note. Separate reviewer file-read traces are unavailable. [The revised silent 2:44 demo is published on YouTube](https://www.youtube.com/watch?v=xGsDpR_3hEg), with English captions and [media/provenance](FINAL_DEMO.md). The final submission followed the entrant's explicit approval to accept the Official Rules, DCO and Devpost Terms.
 
 ## Project name and tagline
 
@@ -8,7 +8,7 @@ English draft prepared October 10, 2026; platform status updated October 12. Thi
 
 **Prove old and new clients can share a database before a rollout.**
 
-Proposed category: **Path A — Start Fresh**. Intended autonomy level: **Supervised** for the demonstrated compatibility investigation and evidence review, with a human retaining the actual release decision. Review the category against the actual workflow before final submission.
+Submitted category: **Path A — Start Fresh**. Submitted autonomy level: **Supervised** for the demonstrated compatibility investigation and evidence review, with a human retaining the actual release decision.
 
 ## Inspiration and problem
 
@@ -54,7 +54,7 @@ The project demonstrates that compatibility needs directional reads and writes, 
 
 The harness contains three fixed strategies and one work-order fixture. It does not inspect arbitrary production schemas, connect a production database, merge a change, deploy an application, or guarantee rollback after every possible production write. The compatible example models an expand phase; removing the legacy column belongs to a later release after old clients have retired.
 
-Both actual Duo sessions, exact executed code, saved prompts and CI evidence are retained. The published final silent edit shows actual platform captures and the human release decision. Review the remaining Devpost fields and participant declarations before final submission. Public deployment is not currently claimed; no Google Cloud bonus is claimed.
+Both actual Duo sessions, exact executed code, saved prompts and CI evidence are retained. The published final silent edit shows actual platform captures and the human release decision. The Devpost fields and participant declarations were completed before the verified October 12 submission. Public deployment is not currently claimed; no Google Cloud bonus is claimed.
 
 ## Published silent demo — 2 minutes 44 seconds
 
@@ -74,14 +74,14 @@ Both actual Duo sessions, exact executed code, saved prompts and CI evidence are
 
 If live Duo or CI access is unavailable, retain a local walkthrough clearly labelled as development evidence. It is not a replacement for the required platform demonstration.
 
-## Fields and links to complete before submitting
+## Submitted fields and supporting links
 
 | Devpost material | Current value/status |
 | --- | --- |
 | Project title | ReleaseSteward |
-| Tagline and English description | Saved and verified in the canonical Devpost draft, alongside the current public source, video and tags. |
+| Tagline and English description | Saved and verified in the submitted Devpost entry, alongside its public source, video and tags. |
 | Path | Path A — new project. |
-| Autonomy level | Supervised, saved in the draft; a human retains the rollout decision. |
+| Autonomy level | Supervised, saved in the submitted entry; a human retains the rollout decision. |
 | Public MIT GitLab repository URL | [Assigned public project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase), project ID 87500138; public source and detected MIT verified at `6897bd93c17de4eea897c4cec6ce580a2985652c`. |
 | Public MIT GitHub source mirror | [Vcode2407/gitlab-releasesteward](https://github.com/Vcode2407/gitlab-releasesteward), published separately from the assigned GitLab source. |
 | Runnable source and assets | Public mirror, README, and [clean-checkout judge guide](JUDGE_SETUP.md) available. |
@@ -93,9 +93,9 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | Actual local development walkthrough | [Silent 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; retains the October 10 pending platform banner. Corrected actual CI and Duo are verified separately. |
 | Source/evidence hashes and CI artifact link | [Actual CI artifact](https://gitlab.com/api/v4/projects/87500138/jobs/17101112724/artifacts/artifacts/release-evidence.json) and [qualified actual Duo record](evidence/duo-session-9307096.json) verified; complete generated Duo JSON was not retrieved. |
 | Deployment/Google Cloud bonus URL | None claimed. |
-| Original project URL for Path B | Not applicable to the proposed new Path A entry. |
+| Original project URL for Path B | Not applicable to the submitted new Path A entry. |
 | Entrant eligibility | User confirmed legal age of majority and India residence; no relevant GitLab/Devpost/promotion-entity employee, representative or agent affiliation; no immediate-family/household affiliation; and no judge or judge-employer affiliation. |
-| Official Rules, rights and DCO | Final Official Rules and DCO acceptance remain pending; no acceptance is claimed by this document. |
-| Final Devpost URL/status | Canonical draft saved at 4/5 steps; current story, source, video and tags verified. Final submission remains pending. |
+| Official Rules, rights and DCO | The entrant explicitly approved acceptance of the GitLab Official Rules, DCO and Devpost Terms before submission. The final agreement was checked and Devpost confirmed submission on October 12. |
+| Final Devpost URL/status | [Submitted entry](https://devpost.com/software/releasesteward), confirmed October 12, 2026, at 10:58 UTC / 16:28 IST. Story, source, video and tags were verified before submission. |
 
-Deadline: **October 27, 2026, 13:00 UTC / 18:30 IST**. Review the [official rules](https://gitlab-transcend.devpost.com/rules), [contributor onboarding](https://contributors.gitlab.com/transcend-hackathon/), [custom-flow documentation](https://docs.gitlab.com/user/duo_agent_platform/flows/custom/), and [schema restrictions](https://docs.gitlab.com/user/duo_agent_platform/flows/custom_flows_schema/) before completing the final form. Path A requires actual Duo use, a public MIT GitLab repository, visible automation history, and the English demonstration materials; prepared configurations do not establish those outcomes.
+Deadline: **October 27, 2026, 13:00 UTC / 18:30 IST**. Review the [official rules](https://gitlab-transcend.devpost.com/rules), [contributor onboarding](https://contributors.gitlab.com/transcend-hackathon/), [custom-flow documentation](https://docs.gitlab.com/user/duo_agent_platform/flows/custom/), and [schema restrictions](https://docs.gitlab.com/user/duo_agent_platform/flows/custom_flows_schema/) when reviewing the submitted entry. Path A requires actual Duo use, a public MIT GitLab repository, visible automation history, and the English demonstration materials; prepared configurations do not establish those outcomes.

@@ -22,4 +22,4 @@ The compatible strategy is supplied project code, not a model-generated repair. 
 
 The current screen recording contains no audio track. The permanent development-status banner and actual recorded actions are retained. No stock footage or simulated platform output is included. The video and fixture evidence are authored project assets covered by the repository's MIT license.
 
-To reproduce the actions, follow [the judge setup guide](JUDGE_SETUP.md). Review the separate current platform evidence in [the GitLab setup guide](GITLAB_SETUP.md), the [final demo and provenance](FINAL_DEMO.md), and its timeline in [the submission draft](SUBMISSION.md).
+To reproduce the actions, follow [the judge setup guide](JUDGE_SETUP.md). Review the separate current platform evidence in [the GitLab setup guide](GITLAB_SETUP.md), the [final demo and provenance](FINAL_DEMO.md), and its timeline in [the submission record](SUBMISSION.md).
