@@ -1,6 +1,6 @@
 # ReleaseSteward — Devpost submission draft
 
-English draft prepared October 10, 2026; platform status updated October 12. This is preparation material, not a submitted entry. The [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) detects MIT and publishes verified code `6897bd93c17de4eea897c4cec6ce580a2985652c`. Its [pipeline](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718) passed nine tests and the compatible 9/9 gate. [Corrected actual Duo session 9307096](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096) also passed all nine tests and nine compatible checks on SQLite 3.34.1 and completed a consistent reviewer note. Separate reviewer file-read traces are unavailable. The final platform video and Devpost submission remain pending.
+English draft prepared October 10, 2026; platform status updated October 12. This is preparation material, not a submitted entry. The [assigned public GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase) detects MIT and publishes verified code `6897bd93c17de4eea897c4cec6ce580a2985652c`. Its [pipeline](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718) passed nine tests and the compatible 9/9 gate. [Corrected actual Duo session 9307096](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096) also passed all nine tests and nine compatible checks on SQLite 3.34.1 and completed a consistent reviewer note. Separate reviewer file-read traces are unavailable. [The final silent 2:44 demo is published on YouTube](https://www.youtube.com/watch?v=WwfkawIuRuE), with English captions and [media/provenance](FINAL_DEMO.md). Final Devpost submission remains pending.
 
 ## Project name and tagline
 
@@ -8,7 +8,7 @@ English draft prepared October 10, 2026; platform status updated October 12. Thi
 
 **Prove old and new clients can share a database before a rollout.**
 
-Proposed category: **Path A — Start Fresh**. Intended autonomy level: **Supervised** for compatibility investigation and evidence review, with a human retaining the actual release decision. The live Duo behavior must be demonstrated before this category is finalized.
+Proposed category: **Path A — Start Fresh**. Intended autonomy level: **Supervised** for the demonstrated compatibility investigation and evidence review, with a human retaining the actual release decision. Review the category against the actual workflow before final submission.
 
 ## Inspiration and problem
 
@@ -54,19 +54,21 @@ The project demonstrates that compatibility needs directional reads and writes, 
 
 The harness contains three fixed strategies and one work-order fixture. It does not inspect arbitrary production schemas, connect a production database, merge a change, deploy an application, or guarantee rollback after every possible production write. The compatible example models an expand phase; removing the legacy column belongs to a later release after old clients have retired.
 
-Both actual Duo sessions, exact executed code, saved prompts and CI evidence are retained. The final silent video must show real platform results and the human release decision, with a public YouTube URL. Review the remaining Devpost fields and participant declarations before final submission. Public deployment is not currently claimed; no Google Cloud bonus is claimed.
+Both actual Duo sessions, exact executed code, saved prompts and CI evidence are retained. The published final silent edit shows actual platform captures and the human release decision. Review the remaining Devpost fields and participant declarations before final submission. Public deployment is not currently claimed; no Google Cloud bonus is claimed.
 
-## Demo outline — 2 minutes 40 seconds
+## Published silent demo — 2 minutes 44 seconds
 
-The actual corrected Duo session is now available to record. Show its real command results and qualified reviewer evidence; preserve the failed first session separately. No final platform video is yet claimed.
+[Watch the public YouTube video](https://www.youtube.com/watch?v=WwfkawIuRuE). The edit uses actual October 10 local footage and held October 12 GitLab screenshots, with English captions and no audio. Historical footage and the failed first run are dated; screenshots are labelled as a captured-screen walkthrough. All 14 scene samples were visually reviewed, and full decoding verified exactly 164 seconds and 4,100 frames at 25 fps with zero audio. These checks are sampled-frame review plus full decoding, not a claim of continuous normal-speed review. [Video, captions and provenance](FINAL_DEMO.md) are retained separately from the original local recording.
 
 | Time | Action and evidence |
 | --- | --- |
-| 0:00–0:20 | Introduce mixed old/new application instances sharing the work-order database. |
-| 0:20–0:55 | Run the breaking rename in the workbench. Show the migration applying and the old-read check failing. |
-| 0:55–1:45 | Show actual session 9307096: rename audit, 9/9 compatible audit, nine tests and the consistent reviewer note. State that separate reviewer read traces are not exposed. |
-| 1:45–2:15 | Show the compatible fixture's nine checks and explain old/new write synchronization and rollback scope. |
-| 2:15–2:40 | Show exported hashes and the actual visible GitLab pipeline; state fixture limits and the human release decision. |
+| 0:00–0:36 | Dated local footage: problem, breaking rename at 3/9, supplied compatible fixture at 9/9, executed SQL and evidence. |
+| 0:36–0:52 | Actual assigned public source and historical first Duo failure at 8/9 on SQLite 3.34.1. |
+| 0:52–1:12 | Corrected pipeline 2937183718 and all nine tests at code commit 6897bd9. |
+| 1:12–1:36 | Saved public catalog v1.2.0 and actual second-run request; command restrictions remain prompt instructions. |
+| 1:36–2:12 | Actual session 9307096: nine compatible checks, nine tests, and a consistent reviewer note; separate file-read traces are not exposed. |
+| 2:12–2:28 | Actual Duo check IDs, common source hash and two evidence hashes; session report CI metadata is empty. |
+| 2:28–2:44 | Controlled-fixture limits and the remaining human rollout decision; no production deployment. |
 
 If live Duo or CI access is unavailable, retain a local walkthrough clearly labelled as development evidence. It is not a replacement for the required platform demonstration.
 
@@ -75,7 +77,7 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | Devpost material | Current value/status |
 | --- | --- |
 | Project title | ReleaseSteward |
-| Tagline and English description | Draft above; review before pasting. |
+| Tagline and English description | Saved and verified in the canonical Devpost draft, alongside the current public source, video and tags. |
 | Path | Path A — new project. |
 | Autonomy level | Proposed Supervised; confirm against actual demonstrated Duo workflow. |
 | Public MIT GitLab repository URL | [Assigned public project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase), project ID 87500138; public source and detected MIT verified at `6897bd93c17de4eea897c4cec6ce580a2985652c`. |
@@ -85,12 +87,13 @@ If live Duo or CI access is unavailable, retain a local walkthrough clearly labe
 | Visible GitLab pipeline history | [Successful corrected-code pipeline 2937183718](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718), commit `6897bd93c17de4eea897c4cec6ce580a2985652c`; actual nine-test trace and compatible 9/9 artifact verified. |
 | GitLab Duo flow/catalog URL and session evidence | [Public catalog flow 1017883](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/flows/1017883), verified v1.2.0; [actual session 9307096](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096) passed nine tests and 9/9 checks, with consistent review and unavailable separate reviewer read traces. First failed session retained separately. |
 | Contributor and Duo setup instructions | [Concrete onboarding, environment, goal, and evidence guide](GITLAB_SETUP.md) prepared. |
-| Public YouTube video under three minutes | Actual corrected platform execution is available; final silent recording and public upload pending. |
-| Actual local development walkthrough | [Silent 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; preserves the pending GitLab Duo/CI status at capture. Initial actual CI is now verified separately. |
+| Public YouTube video under three minutes | [Published silent 2:44 video](https://www.youtube.com/watch?v=WwfkawIuRuE), with English captions; 14 sampled frames and full decoding checked, with zero audio. |
+| Actual local development walkthrough | [Silent 1:50 MP4 and execution evidence](LOCAL_DEMO.md) available; retains the October 10 pending platform banner. Corrected actual CI and Duo are verified separately. |
 | Source/evidence hashes and CI artifact link | [Actual CI artifact](https://gitlab.com/api/v4/projects/87500138/jobs/17101112724/artifacts/artifacts/release-evidence.json) and [qualified actual Duo record](evidence/duo-session-9307096.json) verified; complete generated Duo JSON was not retrieved. |
 | Deployment/Google Cloud bonus URL | None claimed. |
 | Original project URL for Path B | Not applicable to the proposed new Path A entry. |
-| Entrant/team details, rights, eligibility and DCO | User verification pending. |
-| Final Devpost URL/status | Pending; this document makes no submission. |
+| Entrant eligibility | User confirmed legal age of majority and India residence; no relevant GitLab/Devpost/promotion-entity employee, representative or agent affiliation; no immediate-family/household affiliation; and no judge or judge-employer affiliation. |
+| Official Rules, rights and DCO | Final Official Rules and DCO acceptance remain pending; no acceptance is claimed by this document. |
+| Final Devpost URL/status | Canonical draft saved at 4/5 steps; current story, source, video and tags verified. Final submission remains pending. |
 
 Deadline: **October 27, 2026, 13:00 UTC / 18:30 IST**. Review the [official rules](https://gitlab-transcend.devpost.com/rules), [contributor onboarding](https://contributors.gitlab.com/transcend-hackathon/), [custom-flow documentation](https://docs.gitlab.com/user/duo_agent_platform/flows/custom/), and [schema restrictions](https://docs.gitlab.com/user/duo_agent_platform/flows/custom_flows_schema/) before completing the final form. Path A requires actual Duo use, a public MIT GitLab repository, visible automation history, and the English demonstration materials; prepared configurations do not establish those outcomes.

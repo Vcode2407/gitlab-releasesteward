@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "youtube": {
+    "url": "https://www.youtube.com/watch?v=WwfkawIuRuE",
+    "title": "ReleaseSteward | Real GitLab Duo migration review | Silent demo",
+    "visibilityObserved": "public",
+    "publicationConfirmedAtUtc": "2026-10-12T06:22:12.217Z",
+    "englishSubtitlesSaved": true,
+    "processingComplete": true,
+    "signedOutPlaybackVerificationClaimed": false
+  },
+  "video": {
+    "path": "ReleaseSteward-final-silent.mp4",
+    "sha256": "29c5dedf5101a0f8e593e3fbde2e58a1d5d0cda6c2878cebf62a7a9998f3a8d1",
+    "bytes": 3895556,
+    "durationSeconds": 164,
+    "audioStreams": 0,
+    "videoStreams": 1,
+    "width": 1600,
+    "height": 1200,
+    "fps": 25,
+    "codec": "h264",
+    "decodedFrames": 4100,
+    "fullDecodePassed": true,
+    "exactFrameTimestampsVerified": true,
+    "reencoded": true
+  },
+  "englishCaptions": {
+    "path": "ReleaseSteward-English-captions.srt",
+    "sha256": "2f72ec9e0de1b3523eeac4d7b9f3ba2211fd52808a65170ef81179d3227ad51d",
+    "bytes": 3000,
+    "format": "SRT",
+    "language": "en",
+    "burnedInCaptionsAlsoPresent": true,
+    "lineEndings": "LF; hash identifies repository/download bytes",
+    "textAndTimingsUnchangedFromReviewedSource": true
+  },
+  "assembly": {
+    "localFootageSeconds": 36,
+    "heldScreenshotSeconds": 128,
+    "continuousPlatformRecordingClaimed": false,
+    "localFootageLabel": "OCT 10 LOCAL RECORDING | Historical status retained; current GitLab proof follows",
+    "historicalFailureLabel": "OCT 12 FIRST DUO RUN | Held actual screen; historical failed result",
+    "currentScreenshotLabel": "CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage",
+    "reviewAndHashScenesReuseActualReportTable": true
+  },
+  "sourceInputs": {
+    "localRecording": {
+      "path": "releasesteward-local-development.mp4",
+      "sha256": "d03076015778aaa48872022f3e5dc87e0c1499f2eba2f495f4fbd4d3658ddeab",
+      "recordedOn": "2026-10-10",
+      "sourceCommit": "3ae3adf29e40edabc52256cc4587ba76557d9d0f",
+      "unchanged": true
+    },
+    "actualGitLabScreens": {
+      "capturedOn": "2026-10-12",
+      "captureMethod": "Actual browser screenshots reviewed for content and privacy before assembly",
+      "executedCodeCommit": "6897bd93c17de4eea897c4cec6ce580a2985652c",
+      "pipelineUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/pipelines/2937183718",
+      "catalogUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/flows/1017883",
+      "successfulDuoSessionUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096",
+      "historicalFailedDuoSessionUrl": "https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9306854"
+    }
+  },
+  "review": {
+    "sampledSceneFramesReviewed": 14,
+    "contentAndPrivacyAccepted": true,
+    "fullFileDecoded": true,
+    "continuousNormalSpeedViewingClaimed": false,
+    "verificationMethods": [
+      "PyAV metadata and full decoding with exact frame timestamps",
+      "FFmpeg container inspection"
+    ]
+  },
+  "evidenceLimits": [
+    "Reviewer final note declares both reports read and cites consistent hashes/check IDs; separate read_file traces are not exposed.",
+    "Complete generated Duo JSON was not retrieved; actual inspector disk-read output verified hashes/check IDs.",
+    "Duo report CI metadata is empty; actual runner/session provenance is retained separately.",
+    "The compatible strategy is authored fixture code, and command restrictions are prompt instructions.",
+    "Results cover one controlled work-order fixture; a human retains the actual production rollout decision."
+  ],
+  "developmentAssistance": "OpenAI Codex assisted implementation, testing, documentation and demo preparation; entrant retains final review and submission decisions.",
+  "devpostSubmissionClaimed": false
+}

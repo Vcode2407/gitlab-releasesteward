@@ -4,7 +4,7 @@ The [silent-video verification](media/silent-video-verification.json) records ze
 
 [Watch the silent video](media/releasesteward-local-development.mp4) — **1 minute 50 seconds**, recorded October 10, 2026 from source commit `3ae3adf29e40edabc52256cc4587ba76557d9d0f`.
 
-This is an actual isolated browser recording of ReleaseSteward executing its controlled SQLite fixtures. The audio track has been removed; the English application text and permanent banner remain unchanged. The banner discloses that **GitLab Duo and GitLab CI execution remain pending**. It is development evidence; the final event video still needs real platform execution and a public YouTube link. The table below provides a written walkthrough for the silent footage.
+This is an actual isolated browser recording of ReleaseSteward executing its controlled SQLite fixtures. The audio track has been removed; the English application text and permanent banner remain unchanged. Its pending GitLab Duo/CI banner records the **October 10 capture state**. Later [verified CI and actual Duo session 9307096](GITLAB_SETUP.md) passed nine tests and 9/9 compatible checks. [The published final 2:44 demo](https://www.youtube.com/watch?v=WwfkawIuRuE) dates this historical footage and then shows labelled held captures of actual platform results. The table below describes the original local footage.
 
 | Approximate time | Observed action |
 | --- | --- |
@@ -22,4 +22,4 @@ The compatible strategy is supplied project code, not a model-generated repair. 
 
 The current screen recording contains no audio track. The permanent development-status banner and actual recorded actions are retained. No stock footage or simulated platform output is included. The video and fixture evidence are authored project assets covered by the repository's MIT license.
 
-To reproduce the actions, follow [the judge setup guide](JUDGE_SETUP.md). To complete the required platform demonstration, follow [the GitLab onboarding guide](GITLAB_SETUP.md) and the final outline in [the submission draft](SUBMISSION.md).
+To reproduce the actions, follow [the judge setup guide](JUDGE_SETUP.md). Review the separate current platform evidence in [the GitLab setup guide](GITLAB_SETUP.md), the [final demo and provenance](FINAL_DEMO.md), and its timeline in [the submission draft](SUBMISSION.md).

@@ -1,21 +1,23 @@
 # Reproduce ReleaseSteward
 
-Public source: [GitHub mirror](https://github.com/Vcode2407/gitlab-releasesteward). This guide reproduces the local database harness. The initial actual GitLab CI passed; the first Duo session failed its rollback gate and could not independently review the reports. Their history and the corrected flow's pending platform validation are in the [setup guide](GITLAB_SETUP.md).
+Public MIT source: [assigned GitLab project](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase), with a separate [GitHub mirror](https://github.com/Vcode2407/gitlab-releasesteward). This guide reproduces the controlled local database harness. Corrected [Duo session 9307096](https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase/-/automate/agent-sessions/9307096) passed all nine tests and 9/9 compatible checks on SQLite 3.34.1 at code commit `6897bd93`. Its reviewer declared both reports read and cited consistent check IDs and hashes; separate file-read traces are not exposed. The [setup guide](GITLAB_SETUP.md) retains the verified CI, corrected run and historical first-run failure.
 
 ## Clean checkout
 
 Install Python 3.12 and Git. Node.js 22 is needed only for the browser JavaScript syntax check. The application and Python tests use the standard library; no package installation, database account, API key, or external service is required.
 
 ```powershell
-git clone https://github.com/Vcode2407/gitlab-releasesteward.git
-cd gitlab-releasesteward
+git clone https://gitlab.com/gitlab-ai-hackathon/transcend-october-2026/43259850/showcase.git releasesteward
+cd releasesteward
 python --version
 python -m unittest discover -s tests -v
 node --check public/app.js
 python release_steward.py serve
 ```
 
-On Windows with multiple Python installations, use `py -3.12` in place of `python`. On Linux, `python3.12` is suitable. The server prints its actual address and binds to loopback. Open [the local workbench](http://127.0.0.1:4184). If that port is occupied, start with `python release_steward.py serve --port 4194` and open that printed URL. Stop the server with Ctrl+C.
+On Windows with multiple Python installations, use `py -3.12` in place of `python`. On Linux, `python3.12` is suitable. The `release_steward.py serve` subcommand serves both the workbench assets and its audit API. It prints its actual address and binds to loopback. Open [the local workbench](http://127.0.0.1:4184). If that port is occupied, start with `python release_steward.py serve --port 4194` and open that printed URL. Stop the server with Ctrl+C.
+
+This checkout retains the static console message `GitLab Duo access is pending` from the original local setup. The verified October 12 platform execution is documented by the actual session linked above.
 
 ## Browser walkthrough
 
@@ -48,4 +50,4 @@ The reproducible `evidenceHash` depends on the scenario, migration, checks, and 
 
 The current suite contains nine tests. They cover the known fixtures, missing backfill, missing synchronization, rollback preservation of old/new client updates and newly inserted rows, reproducible hashes, actual-environment metadata, and rejection of arbitrary SQL scenario names. Browser success, local CLI success, GitHub CI success, GitLab CI success, and Duo execution are distinct evidence states.
 
-These checks cover one work-order fixture and three authored strategies. They do not certify arbitrary migrations, real workloads, or production rollback. A human makes the actual release decision. Final judge materials must also include the required public GitLab repository, visible GitLab automation, actual Duo session, and public YouTube demonstration under three minutes.
+These checks cover one work-order fixture and three authored strategies. They do not certify arbitrary migrations, real workloads, or production rollback. A human makes the actual release decision. Review the linked public GitLab source, CI and actual Duo session alongside [the published silent 2:44 YouTube demo](https://www.youtube.com/watch?v=WwfkawIuRuE). [Final demo downloads and provenance](FINAL_DEMO.md) include the video and English captions. Final Devpost submission remains pending.

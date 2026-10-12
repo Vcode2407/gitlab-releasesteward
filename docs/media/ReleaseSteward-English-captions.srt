@@ -1,0 +1,81 @@
+1
+00:00:00,000 --> 00:00:06,000
+OCT 10 LOCAL RECORDING | Historical status retained; current GitLab proof follows
+Can old and new clients still share the database during a rollout?
+
+2
+00:00:06,000 --> 00:00:18,000
+OCT 10 LOCAL RECORDING | Historical status retained; current GitLab proof follows
+The rename applies, but only 3 of 9 checks pass. Old clients lose their
+column.
+
+3
+00:00:18,000 --> 00:00:30,000
+OCT 10 LOCAL RECORDING | Historical status retained; current GitLab proof follows
+The authored expand/backfill fixture passes 9 of 9 checks. This repair is
+supplied project code.
+
+4
+00:00:30,000 --> 00:00:36,000
+OCT 10 LOCAL RECORDING | Historical status retained; current GitLab proof follows
+Executed SQL, schema and hashes make the controlled fixture reviewable.
+
+5
+00:00:36,000 --> 00:00:42,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+Public MIT source in the assigned GitLab project. Both original histories
+are preserved.
+
+6
+00:00:42,000 --> 00:00:52,000
+OCT 12 FIRST DUO RUN | Held actual screen; historical failed result
+The first Duo run exposed a SQLite 3.34.1 rollback failure: 8 of 9 checks.
+Independent review was incomplete.
+
+7
+00:00:52,000 --> 00:01:04,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+Portable rollback rebuilds the fixed legacy table. Pipeline 2937183718
+succeeds at 6897bd9.
+
+8
+00:01:04,000 --> 00:01:12,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+The corrected revision executes all 9 tests: OK, then Job succeeded. CI does
+not establish a successful Duo rerun.
+
+9
+00:01:12,000 --> 00:01:24,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+Catalog v1.2.0 keeps an inspector and independent reviewer, with readable
+report paths. The saved configuration is checked.
+
+10
+00:01:24,000 --> 00:01:36,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+The approved second Duo run requests both audits and report review. Commands
+are prompt-limited; no enforced allowlist.
+
+11
+00:01:36,000 --> 00:01:54,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+The actual rerun passes 9 checks and 9 tests on SQLite 3.34.1. Recorded
+command output ties results to 6897bd9.
+
+12
+00:01:54,000 --> 00:02:12,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+The reviewer note declares both reports read and matches inspector checks
+and hashes. Separate read_file traces are not exposed.
+
+13
+00:02:12,000 --> 00:02:28,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+Duo reports show actual check IDs, a shared source hash and two evidence
+hashes. CI metadata is empty in these session reports.
+
+14
+00:02:28,000 --> 00:02:44,000
+CAPTURED SCREEN WALKTHROUGH | Held real screenshots, not continuous footage
+Controlled work-order fixtures, not production certification. A human
+decides the rollout; no deployment is performed.
